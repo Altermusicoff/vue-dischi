@@ -1,0 +1,61 @@
+<!-- // Attraverso una chiamata axios all'API di boolean
+//      https://flynn.boolean.careers/exercises/api/array/music
+//      avremo a disposizione una decina di dischi musicali.
+//      Utilizzando vue, stampiamo a schermo una card per ogni album.
+//      BONUS: Creare una select con tutti i generi dei dischi. In base a cosa scegliamo nella select, vedremo i
+        corrispondenti cd.
+//      BONUS 2: Ordinare i dischi per anno di uscita. -->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dischi</title>
+    <!-- font awesame -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- bootstrap v4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container vh-100">
+        
+    
+        <div v-for='album in albums' class="">
+            <div  v-if="select == album.genre || select == 'All' ">
+                <img :src="album.poster" alt="">
+                <p>{{album.title}}</p>
+                <p>{{album.author}}</p>
+                <p>{{album.genre}}</p>
+                <p>{{album.year}}</p>
+            </div>
+            
+        </div>
+
+        <div>
+            <p>{{select}}</p>
+            <select v-model='select'>
+                <option value="All">All</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Metal">Metal</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+            </select>
+        </div>
+
+    </div>
+</body>
+
+</html>
